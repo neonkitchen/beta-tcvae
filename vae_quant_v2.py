@@ -19,7 +19,7 @@ from elbo_decomposition import elbo_decomposition
 from plot_latent_vs_true import plot_vs_gt_shapes, plot_vs_gt_faces  # noqa: F401
 
 
-# testing git push: 
+
 class MLPEncoder(nn.Module):
     def __init__(self, output_dim):
         super(MLPEncoder, self).__init__()
