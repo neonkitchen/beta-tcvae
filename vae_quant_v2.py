@@ -382,7 +382,7 @@ def main():
     parser.add_argument('--log_freq', default=200, type=int, help='num iterations per log')
     args = parser.parse_args()
 
-    #torch.cuda.set_device(args.gpu)
+    torch.cuda.set_device(args.gpu)
 
     # data loader
     train_loader = setup_data_loaders(args, use_cuda=True)
