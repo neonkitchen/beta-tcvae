@@ -18,6 +18,7 @@ from lib.flows import FactorialNormalizingFlow
 from elbo_decomposition import elbo_decomposition
 from plot_latent_vs_true import plot_vs_gt_shapes, plot_vs_gt_faces  # noqa: F401
 
+### Latest version 18/11/20 13h
 
 class MLPEncoder(nn.Module):
     def __init__(self, output_dim):
@@ -424,7 +425,7 @@ def main():
             anneal_kl(args, vae, iteration)
             optimizer.zero_grad()
             # transfer to GPU
-            x = x.cuda(async=True)
+            x = x.cuda(non_blocking=True)
             # wrap the mini-batch in a PyTorch Variable
             x = Variable(x)
             # do ELBO gradient and accumulate loss
@@ -432,7 +433,7 @@ def main():
             if utils.isnan(obj).any():
                 raise ValueError('NaN spotted in objective.')
             obj.mean().mul(-1).backward()
-            elbo_running_mean.update(elbo.mean().data[0])
+            elbo_running_mean.update(elbo.mean())
             optimizer.step()
 
             # report training diagnostics
