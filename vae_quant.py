@@ -366,10 +366,10 @@ def main():
     parser.add_argument('-d', '--dataset', default='shapes', type=str, help='dataset name',
         choices=['shapes', 'faces'])
     parser.add_argument('-dist', default='normal', type=str, choices=['normal', 'laplace', 'flow'])
-    parser.add_argument('-n', '--num-epochs', default=50, type=int, help='number of training epochs')
+    parser.add_argument('-n', '--num-epochs', default=10, type=int, help='number of training epochs')
     parser.add_argument('-b', '--batch-size', default=8, type=int, help='batch size')
     parser.add_argument('-l', '--learning-rate', default=1e-3, type=float, help='learning rate')
-    parser.add_argument('-z', '--latent-dim', default=10, type=int, help='size of latent dimension')
+    parser.add_argument('-z', '--latent-dim', default=5, type=int, help='size of latent dimension')
     parser.add_argument('--beta', default=1, type=float, help='ELBO penalty term')
     parser.add_argument('--tcvae', action='store_true')
     parser.add_argument('--exclude-mutinfo', action='store_true')
