@@ -26,7 +26,7 @@ class MLPEncoder(nn.Module):
         self.output_dim = output_dim
 
         self.fc1 = nn.Linear(4096, 1200)
-        self.fc2 = nn.Linear(1200, 1200)azz
+        self.fc2 = nn.Linear(1200, 1200)
         self.fc3 = nn.Linear(1200, output_dim)
 
         self.conv_z = nn.Conv2d(64, output_dim, 4, 1, 0)
