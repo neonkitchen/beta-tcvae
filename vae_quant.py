@@ -26,7 +26,7 @@ class MLPEncoder(nn.Module):
         self.output_dim = output_dim
 
         self.fc1 = nn.Linear(4096, 1200)
-        self.fc2 = nn.Linear(1200, 1200)
+        self.fc2 = nn.Linear(1200, 1200)azz
         self.fc3 = nn.Linear(1200, output_dim)
 
         self.conv_z = nn.Conv2d(64, output_dim, 4, 1, 0)
@@ -371,14 +371,14 @@ def main():
     parser.add_argument('-l', '--learning-rate', default=1e-3, type=float, help='learning rate')
     parser.add_argument('-z', '--latent-dim', default=5, type=int, help='size of latent dimension')
     parser.add_argument('--beta', default=1, type=float, help='ELBO penalty term')
-    parser.add_argument('--tcvae', action='store_true')
-    parser.add_argument('--exclude-mutinfo', action='store_true')
-    parser.add_argument('--beta-anneal', action='store_true')
-    parser.add_argument('--lambda-anneal', action='store_true')
-    parser.add_argument('--mss', action='store_true', help='use the improved minibatch estimator')
-    parser.add_argument('--conv', action='store_true')
+    parser.add_argument('--tcvae', action='store_false')
+    parser.add_argument('--exclude-mutinfo', action='store_false')
+    parser.add_argument('--beta-anneal', action='store_false')
+    parser.add_argument('--lambda-anneal', action='store_false')
+    parser.add_argument('--mss', action='store_false', help='use the improved minibatch estimator')
+    parser.add_argument('--conv', action='store_false')
     parser.add_argument('--gpu', type=int, default=0)
-    parser.add_argument('--visdom', action='store_true', help='whether plotting in visdom is desired')
+    parser.add_argument('--visdom', action='store_false', help='whether plotting in visdom is desired')
     parser.add_argument('--save', default='test1')
     parser.add_argument('--log_freq', default=200, type=int, help='num iterations per log')
     args = parser.parse_args()
