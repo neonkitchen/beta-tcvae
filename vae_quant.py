@@ -366,7 +366,7 @@ def main():
     parser.add_argument('-d', '--dataset', default='shapes', type=str, help='dataset name',
         choices=['shapes', 'faces'])
     parser.add_argument('-dist', default='normal', type=str, choices=['normal', 'laplace', 'flow'])
-    parser.add_argument('-n', '--num-epochs', default=10, type=int, help='number of training epochs')
+    parser.add_argument('-n', '--num-epochs', default=5, type=int, help='number of training epochs')
     parser.add_argument('-b', '--batch-size', default=8, type=int, help='batch size')
     parser.add_argument('-l', '--learning-rate', default=1e-3, type=float, help='learning rate')
     parser.add_argument('-z', '--latent-dim', default=5, type=int, help='size of latent dimension')
@@ -380,7 +380,7 @@ def main():
     parser.add_argument('--gpu', type=int, default=0)
     parser.add_argument('--visdom', action='store_false', help='whether plotting in visdom is desired')
     parser.add_argument('--save', default='test1')
-    parser.add_argument('--log_freq', default=200, type=int, help='num iterations per log')
+    parser.add_argument('--log_freq', default=50, type=int, help='num iterations per log')
     args = parser.parse_args()
 
     torch.cuda.set_device(args.gpu)
